@@ -1,7 +1,7 @@
 # Gestor de equipos
 [![Build Status](https://travis-ci.org/alexhzr/GestorEquipos.svg?branch=master)](https://travis-ci.org/alexhzr/GestorEquipos)
 
-Proyecto para la asignatura Infraestructura Virtual (2018)
+Proyecto para la asignatura Infraestructura Virtual (2018).
 ## Descripción del proyecto
 Microservicio web pensado para gestionar distintos equipos deportivos. Abarca sección de plantillas, gastos y organización de partidas.
 
