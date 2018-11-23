@@ -1,12 +1,12 @@
 from Partida import Partida
+from mongoengine import *
+
+connect('gestor_equipos')
 
 
-class Agenda:
+class Agenda(Document):
     partidas = []
-    nombre = ""
-
-    def __init__(self, nombre):
-        self.nombre = nombre
+    nombre = StringField(max_length=50, required=True)
 
     def crearPartida(self, lugar, fecha, hora):
         p = Partida(lugar, fecha, hora)

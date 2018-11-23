@@ -3,7 +3,7 @@ import Partida
 from Agenda import Agenda
 
 
-agenda = Agenda("Villazarcillo FC")
+agenda = Agenda(nombre="Villazarcillo FC").save()
 
 def test_crearAgenda():
     assert agenda.nombre != "", "La agenda no se ha creado bien"
