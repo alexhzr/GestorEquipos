@@ -2,5 +2,4 @@ pytest==3.8.1
 flask
 pymongo>=2.7.1
 six>=1.10.0
-dateutil>=2.1.0
 mongoengine
