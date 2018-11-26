@@ -1,8 +1,10 @@
 from flask import Flask, render_template, request, session, json
-from pickleshare import *
+from mongoengine import *
+import Agenda
+from Partida import *
 app = Flask(__name__)
 
-db = PickleShareDB('gestor-equipos-data')
+connect('heroku_8jrhk4q8', host='mongodb://user:user1234@ds117334.mlab.com:17334')
 
 @app.route('/')
 def status():

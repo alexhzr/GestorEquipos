@@ -1,7 +1,7 @@
 from Partida import Partida
 from mongoengine import *
 
-connect('gestor_equipos')
+connect('heroku_8jrhk4q8', host='mongodb://user:user1234@ds117334.mlab.com:17334/heroku_8jrhk4q8')
 
 
 class Agenda(Document):
