@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, session, json
 from mongoengine import *
 
 from modelos import Agenda, Equipo, Jugador, Partida
-from constantes import *
 
 app = Flask(__name__)
 
@@ -23,7 +22,7 @@ def borrar_datos():
     Agenda.objects.delete()
 
     respuesta = {
-        "status": OK, "mensaje": "Base de datos limpiada"
+        "status": "OK", "mensaje": "Base de datos limpiada"
     }
 
     return jsonear(respuesta)
@@ -117,14 +116,14 @@ def inicializar_datos():
             i += 1
 
             if agenda.crear_partida(local, visitante, lugar, fecha, hora) == ERROR:
-                respuesta = { "status": ERROR, "mensaje": "Fallo creando partida" }
+                respuesta = { "status": "ERROR", "mensaje": "Fallo creando partida" }
 
                 return jsonear(respuesta)
 
             agenda.save()
 
         respuesta = {
-            "status": OK, "mensaje": "Insertados datos de prueba"
+            "status": "OK", "mensaje": "Insertados datos de prueba"
         }
 
     return jsonear(respuesta)
@@ -133,7 +132,7 @@ def inicializar_datos():
 @app.route('/')
 def status():
     status = {
-      "status": OK,
+      "status": "OK",
       "ejemplo": {
         "ruta": "/equipo/listar",
         "valor": "{ 'respuesta':'vacio' }"
@@ -152,10 +151,10 @@ def listar_equipos():
         for equipo in Equipo.objects:
             equipos.append(json.loads(equipo.to_json()))
 
-        respuesta = { "status" : OK, "equipos" : equipos }
+        respuesta = { "status" : "OK", "equipos" : equipos }
 
     else:
-        respuesta = { "status": OK, "equipos" : 0 }
+        respuesta = { "status": "OK", "equipos" : 0 }
 
     return jsonear(respuesta)
 
@@ -176,7 +175,7 @@ def crearEquipo():
         equipo.save()
 
         respuesta = {
-            "status": OK,
+            "status": "OK",
             "id_equipo": str(equipo.id)
         }
 
@@ -216,7 +215,7 @@ def crearJugador():
             equipo.save()
 
             respuesta = {
-                "status": OK,
+                "status": "OK",
                 "jugador_creado": json.loads(jugador.to_json()),
                 "equipo": json.loads(equipo.to_json())
             }
@@ -251,12 +250,12 @@ def crear_partida():
 
         if agenda.crear_partida(local.id, visitante.id, lugar, fecha, hora) == OK:
             respuesta = {
-                "status": OK,
+                "status": "OK",
                 "mensaje": "Creada partida correctamente para la partida de " + fecha + " " + hora + " en " + lugar
             }
         else:
             respuesta = {
-                "status": ERROR,
+                "status": "ERROR",
                 "mensaje": "Error creando la partida"
             }
 

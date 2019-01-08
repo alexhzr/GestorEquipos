@@ -1,8 +1,7 @@
 # coding=utf-8
-from .modelos import Agenda, Equipo, Jugador, Partida
-from .app import *
+from modelos import Agenda, Equipo, Jugador, Partida
+from app import *
 import re
-
 
 def test_datos_prueba():
     borrar_datos()
