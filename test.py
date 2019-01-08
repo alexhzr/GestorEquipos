@@ -18,11 +18,12 @@ def test_datos_prueba():
 
 def test_crear_jugador():
     equipo = Equipo("Testing Team FC")
+    equipo.crear_jugador("Testero Uno", 23, "Test_1")
     assert len(equipo.jugadores) == 1, "No se crean bien los jugadores"
-    
+
 def test_crear_partida():
     agenda = Agenda.objects().first()
-    assert agenda.crear_partida("Zurriagazo FC", "Átomos de Springfield", "Estadio Nuevo Méjico", "01/02/2020 20:30") == 1, "Error creando partida"
+    assert agenda.crear_partida("Zurriagazo FC", "Átomos de Springfield", "Estadio Nuevo Méjico", "01/02/2020", "20:30") == 1, "Error creando partida"
 
 def test_contar_partidas():
     agenda = Agenda.objects().first()

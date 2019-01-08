@@ -23,7 +23,7 @@ class Equipo(gj.Document):
 
         self.save()
 
-    def add_jugador(self, nombre, edad, nick):
+    def crear_jugador(self, nombre, edad, nick):
         jugador = Jugador(nombre=nombre, edad=edad, nick=nick)
         self.jugadores.append(jugador)
 
