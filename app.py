@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, session, json
 from mongoengine import *
 
-from .modelos import Agenda, Equipo, Jugador, Partida
-from .constantes import *
+from modelos import Agenda, Equipo, Jugador, Partida
+from constantes import *
 
 app = Flask(__name__)
 
