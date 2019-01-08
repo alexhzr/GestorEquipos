@@ -1,7 +1,7 @@
 from mongoengine import *
 import mongoengine_goodjson as gj
 import datetime
-from .constantes import *
+from constantes import *
 
 connect('heroku_8jrhk4q8', host='mongodb://user:user1234@ds117334.mlab.com:17334/heroku_8jrhk4q8')
 
