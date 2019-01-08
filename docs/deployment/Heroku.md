@@ -21,3 +21,5 @@ Indica qué necesita para lanzar. Como es Python 3.6, tendrá:
 ```
 python-3.6.6
 ```
+
+Es **muy importante** añadir ```gunicorn``` al fichero ```requeriments.txt```, sino, Heroku no instalará Gunicorn y por tanto no lanzará la aplicación.
