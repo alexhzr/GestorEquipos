@@ -6,6 +6,9 @@ Yo he configurado Heroku para que despliegue automáticamente vía GitHub. Es de
 
 ![](https://imgur.com/WOtjYDp.png)
 
+### ¿Por qué Heroku?
+Heroku me ha parecido de lejos el más sencillo y rápido para desplegar rápidamente una aplicación. Hace años probé OpenShift y la verdad es que iba muy bien, pero ahora han cambiado mucho la manera de hacer las cosas, empezando por el registro. Desde que apliqué hasta que me concedieron la posibilidad de usar la plataforma, pasaron más de dos semanas, por lo que los rechacé totalmente.
+
 ### Ficheros
 
 #### Procfile
