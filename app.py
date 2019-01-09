@@ -162,7 +162,7 @@ def listar_equipos():
     return jsonear(respuesta)
 
 
-@app.route('/equipo', methods=['POST'])
+@app.route('/equipo', methods=['PUT'])
 def crearEquipo():
     nombre_equipo = request.args.get('nombre')
     equipo = Equipo.objects(nombre=nombre_equipo)
@@ -188,7 +188,7 @@ def crearEquipo():
 """
 ############################ RUTAS PARA JUGADOR ############################
 """
-@app.route('/jugador', methods=['POST'])
+@app.route('/jugador', methods=['PUT'])
 def crearJugador():
     id_equipo = request.args.get("id_equipo")
     equipo = Equipo.objects(id=id_equipo)
@@ -229,7 +229,23 @@ def crearJugador():
 ############################ RUTAS PARA PARTIDA ############################
 """
 
-@app.route('/partida', methods=['POST'])
+@app.route('/partida', methods=['GET'])
+def listar_partidas():
+    agenda = Agenda.objects.first()
+
+    partidas = []
+    if len(agenda.partidas) != 0:
+        for p in agenda.partidas:
+            partidas.append(json.loads(p.to_json()))
+
+        respuesta = { "status" : "OK", "partidas" : partidas }
+
+    else:
+        respuesta = { "status": "OK", "partidas" : 0 }
+
+    return jsonear(respuesta)
+
+@app.route('/partida', methods=['PUT'])
 def crear_partida():
     idLocal = request.args.get("local")
     idVisitante = request.args.get("visitante")
