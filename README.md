@@ -23,8 +23,8 @@ De todas formas, he diseñado modelos para que mi aplicación use ORM. Para ello
 
 He incluido una librería externa, **[mongoengine_goodjson](https://github.com/hiroaki-yamamoto/mongoengine-goodjson)**. Básicamente lo que hace es poner el JSON que exportan los modelos de Mongoengine de una forma más _human readable_.
 
-
 Podría haberlo hecho con Node.js y Express, usando Mongoose como ORM, dado que ya sé hacerlo de esta manera, pero creo conveniente seguir moviéndose y aprendiendo, para no estancarse en lo mismo.
+
 ---
 
 ## Rutas y funcionamiento de la app
