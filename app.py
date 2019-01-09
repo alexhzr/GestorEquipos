@@ -1,7 +1,10 @@
 from flask import Flask, render_template, request, session, json
 from mongoengine import *
 
-from modelos import Agenda, Equipo, Jugador, Partida
+from modelos.Jugador import Jugador as Jugador
+from modelos.Equipo import Equipo as Equipo
+from modelos.Partida import Partida as Partida
+from modelos.Agenda import Agenda as Agenda
 
 app = Flask(__name__)
 
@@ -115,7 +118,7 @@ def inicializar_datos():
 
             i += 1
 
-            if agenda.crear_partida(local, visitante, lugar, fecha, hora) == ERROR:
+            if not agenda.crear_partida(local, visitante, lugar, fecha, hora):
                 respuesta = { "status": "ERROR", "mensaje": "Fallo creando partida" }
 
                 return jsonear(respuesta)
@@ -248,7 +251,7 @@ def crear_partida():
         local = local.first()
         visitante = visitante.first()
 
-        if agenda.crear_partida(local.id, visitante.id, lugar, fecha, hora) == OK:
+        if agenda.crear_partida(local.id, visitante.id, lugar, fecha, hora):
             respuesta = {
                 "status": "OK",
                 "mensaje": "Creada partida correctamente para la partida de " + fecha + " " + hora + " en " + lugar

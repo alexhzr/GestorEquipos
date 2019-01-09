@@ -1,5 +1,5 @@
 # coding=utf-8
-from modelos import Agenda, Equipo, Jugador, Partida
+
 from app import *
 import re
 
