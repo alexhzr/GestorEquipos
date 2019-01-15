@@ -62,6 +62,20 @@ Nos quitamos el problema de los subcampos generados de un plumazo. Esto se puede
 ---
 
 ## Rutas y funcionamiento de la app
+Para ejecutar la aplicación, clonar el repositorio o hacer un fork:
+
+```$ git clone https://github.com/alexhzr/GestorEquipos.git```
+
+Instalar las dependencias
+
+```$ pip3 install requeriments.txt```
+
+
+Ejecutar con:
+
+```python3 app.py```
+
+La aplicación funciona de manera REST. Esto quiere decir que no cuenta con una interfaz web ni ningún tipo de IU. Para poder hacer algunas pruebas, se puede usar alguna aplicación estilo [Postman](https://www.getpostman.com/) y utilizar las rutas que defino aquí abajo.
 
 - `GET /inicializar_datos`: Inicializa la BD con datos de prueba.
 - `GET /borrar_datos`: Borra los datos de la BD
