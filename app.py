@@ -134,11 +134,12 @@ def inicializar_datos():
 
 @app.route('/')
 def status():
+    respuesta = json.loads('{"equipos": [{"id": "5c3f6b61e4198711fc898544", "jugadores": [{"edad": 23, "nick": "Jason", "nombre": "Jason Osuna"}, {"edad": 21, "nick": "Wisin", "nombre": "Wisin Romeldo"}, {"edad": 20, "nick": "El Campe\u00f3n", "nombre": "Welintong Quiw"}], "nombre": "Papaya FC"}, {"id": "5c3f6b62e4198711fc898545", "jugadores": [{"edad": 26, "nick": "Berni", "nombre": "Bernardo Gado"}, {"edad": 23, "nick": "Horace", "nombre": "Horacio Fameldas"}, {"edad": 19, "nick": "El Contreras", "nombre": "Euladio Contreras"}], "nombre": "Zurriagazo FC"}, {"id": "5c3f6b63e4198711fc898546", "jugadores": [{"edad": 41, "nick": "Da Homa", "nombre": "Homer Simpson"}, {"edad": 54, "nick": "Flanders", "nombre": "Ned Flanders"}, {"edad": 42, "nick": "Mo\u00e9", "nombre": "Moe Swislak"}], "nombre": "\u00c1tomos de Springfield"}, {"id": "5c3f6b64e4198711fc898547", "jugadores": [{"edad": 1, "nick": "Moñeco1", "nombre": "Moñeco 1"}, {"edad": 1, "nick": "Moñeco2", "nombre": "Moñeco 2"}, {"edad": 1, "nick": "Moñeco3", "nombre": "Moñeco 3"}], "nombre": "Dummy Crash Dolls"}, {"id": "5c3f6b69e4198711fc898549", "jugadores": [{"edad": 23, "nick": "Test_1", "nombre": "Testero Uno"}], "nombre": "Testing Team FC"}], "status": "OK"}')
     status = {
       "status": "OK",
       "ejemplo": {
-        "ruta": "/equipo/listar",
-        "valor": "{ 'respuesta':'vacio' }"
+        "ruta": "GET /equipo",
+        "valor": respuesta
       }
     }
 
