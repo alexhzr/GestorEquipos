@@ -45,3 +45,25 @@ docs/
 
 Para construir la imagen, dentro del directorio donde esté la aplicación, se hace:
 ``$ docker build --tag=<nombre> .``
+
+Para ejecutarla y ver que funciona,
+
+``$ docker run -p 5000:80 <nombre>``
+
+La opción ``-p 5000:80`` mapea el puerto 5000 externo al 80 interno del contenedor.
+
+### Subir imagen a DockerHub
+
+Primero hay que loguearse si no se ha hecho ya.
+
+``$ docker login``
+
+Con la imagen que hemos construido previamente, la etiquetamos:
+
+``$ docker tag <nombre> alexhzr/gestor-equipos:<tag>``
+
+Finalmente, la subimos con
+
+``$ docker push alexhzr/gestor-equipos:<tag>``
+
+Mi repositorio de DockerHub está en esta URL: https://hub.docker.com/r/alexhzr/gestor-equipos
