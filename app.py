@@ -1,5 +1,6 @@
-from flask import Flask, render_template, request, session, json
+from flask import Flask, render_template, request, session, json, jsonify
 from mongoengine import *
+from bson.objectid import ObjectId
 
 from modelos.Jugador import Jugador as Jugador
 from modelos.Equipo import Equipo as Equipo
@@ -237,7 +238,8 @@ def listar_partidas():
     partidas = []
     if len(agenda.partidas) != 0:
         for p in agenda.partidas:
-            partidas.append(json.loads(p.to_json()))
+            #partidas.append(json.loads(p.to_json()))
+            partidas.append(p.to_json())
 
         respuesta = { "status" : "OK", "partidas" : partidas }
 
@@ -245,6 +247,32 @@ def listar_partidas():
         respuesta = { "status": "OK", "partidas" : 0 }
 
     return jsonear(respuesta)
+
+@app.route('/partida/proxima/<id_equipo>')
+def partida_mas_proxima(id_equipo):
+    equipo = Equipo.objects(id=id_equipo)
+
+    if not equipo:
+        respuesta = {
+            "status": "FAILED",
+            "error": "Ese equipo no existe en la BD"
+        }
+
+    else:
+        equipo = equipo.first()
+        partidas = Agenda.objects.first().partidas
+        partida_mas_proxima = partidas[0]
+        for p in partidas:
+            if p.equipo_local.id == equipo.id or p.equipo_visitante.id == equipo.id:
+                if partida_mas_proxima.fecha > p.fecha:
+                    partida_mas_proxima = p;
+
+        respuesta = {
+            "status": "OK",
+            "partida": partida_mas_proxima.to_json()
+        }
+
+    return jsonify(respuesta)
 
 @app.route('/partida', methods=['PUT'])
 def crear_partida():
