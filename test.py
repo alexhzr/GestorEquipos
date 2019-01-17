@@ -1,6 +1,7 @@
 # coding=utf-8
 
 from app import *
+import datetime
 import re
 
 def test_datos_prueba():
@@ -38,7 +39,10 @@ def test_formatear_fecha():
     assert patt.match(agenda.partidas[0].get_fecha()) is not None, "La fecha no sigue el formato establecido"
 
 def test_partida_proxima():
-    e = Equipo.objects.get(nombre="Zurriagazo FC")
-    p = partida_mas_proxima(e.id)
-    fecha = datetime.datetime(2019, 1, 10, 12, 00)
-    assert p.fecha > fecha, "La función no devuelve la partida más reciente"
+    with app.app_context():
+        e = Equipo.objects.get(nombre="Zurriagazo FC")
+        response = partida_mas_proxima(e.id)
+        fecha_response = datetime.datetime.strptime(response.json.get('partida').get('fecha'), "%d/%m/%Y %H:%M")
+        fecha = datetime.datetime(2019, 1, 10, 12, 00)
+
+        assert fecha_response == fecha, "La función no devuelve la partida más reciente"
