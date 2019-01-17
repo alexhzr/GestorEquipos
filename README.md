@@ -63,5 +63,7 @@ Toda la **[documentación del proyecto](https://github.com/alexhzr/GestorEquipos
 # Despliegue
 
 Despliegue https://gestor-equipos.herokuapp.com
+
 Contenedor: https://gestorequipos-docker.herokuapp.com/
+
 Enlace a DockerHub: https://hub.docker.com/r/alexhzr/gestor-equipos
