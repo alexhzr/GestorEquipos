@@ -37,6 +37,8 @@ La aplicación funciona de manera REST. Esto quiere decir que no cuenta con una 
 - `GET /borrar_datos`: Borra los datos de la BD
 - `GET /equipo`: Obtiene un listado de los equipos
 - `GET /partida`: Obtiene un listado de las partidas
+- `GET /partida/proxima/:id_equipo`: Obtiene la partida más próxima para ese equipo
+
 - `PUT /equipo`: Crea un equipo. Parámetros necesarios:
   - nombre: nombre del equipo
 
