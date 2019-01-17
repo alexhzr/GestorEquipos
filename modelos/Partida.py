@@ -1,3 +1,4 @@
+from flask import json
 from mongoengine import *
 import mongoengine_goodjson as gj
 import datetime
@@ -25,3 +26,13 @@ class Partida(gj.EmbeddedDocument):
 
     def get_fecha(self):
         return self.fecha.strftime("%d/%m/%Y %H:%M")
+
+    def to_json(self):
+        p = {
+            "equipo_local": self.equipo_local.nombre,
+            "equipo_visitante": self.equipo_visitante.nombre,
+            "lugar": self.lugar,
+            "fecha": self.get_fecha()
+        }
+
+        return json.loads(json.dumps(p))
