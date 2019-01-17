@@ -57,3 +57,7 @@ La aplicación funciona de manera REST. Esto quiere decir que no cuenta con una 
 # Documentación del proyecto
 
 Toda la **[documentación del proyecto](https://github.com/alexhzr/GestorEquipos/tree/master/docs)** se encuentra en el directorio ``docs``.
+
+# Despliegue
+
+Despliegue https://gestor-equipos.herokuapp.com
