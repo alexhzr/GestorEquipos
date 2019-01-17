@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, session, json, jsonify
 from mongoengine import *
 from bson.objectid import ObjectId
@@ -309,5 +310,8 @@ def crear_partida():
 
     return jsonear(respuesta)
 
-if __name__ == '__main__':
-    app.run(use_reloader=True, host='0.0.0.0', port="80")
+if __name__ == "__main__":
+    if 'PORT' in os.environ: p = os.environ['PORT']
+    else: p = 5000
+
+    app.run(host="0.0.0.0", port=p)

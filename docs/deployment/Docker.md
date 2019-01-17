@@ -11,7 +11,7 @@ Si diese algún error relacionado con la red, editar el fichero ``/etc/default/d
 
 Se podría decir que el Dockerfile es el corazón de la imagen. Con él logramos que la creación de la imagen de nuestra app siga unas pautas para que pueda ejecutarse sin problemas.
 
-```
+```dockerfile
 # Uso una imagen oficial de Python
 FROM python:3.6.8-slim
 
@@ -44,6 +44,7 @@ docs/
 ### Construir la imagen
 
 Para construir la imagen, dentro del directorio donde esté la aplicación, se hace:
+
 ``$ docker build --tag=<nombre> .``
 
 Para ejecutarla y ver que funciona,
@@ -66,4 +67,20 @@ Finalmente, la subimos con
 
 ``$ docker push alexhzr/gestor-equipos:<tag>``
 
+Para probar la mi imagen, ejecutar:
+
+``$ docker run -p 5000:80 alexhzr/gestor-equipos:latest``
+
 Mi repositorio de DockerHub está en esta URL: https://hub.docker.com/r/alexhzr/gestor-equipos
+
+## Despliegue con Docker
+He montado otra app de Heroku: https://gestorequipos-docker.herokuapp.com/
+
+Para desplegar por contenedores, primero hay que hacer
+``$ heroku container:login``
+
+Ahora, para construir el Dockerfile y subir la imagen de Docker:
+``$ heroku container:push web -a gestor-equipos-dckr``
+
+Finalmente, desplegamos los cambios:
+``$ heroku container:release web -a gestor-equipos-dckr``
