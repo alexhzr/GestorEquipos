@@ -36,3 +36,9 @@ def test_formatear_fecha():
     agenda = Agenda.objects().first()
     patt = re.compile("^(0[1-9]|1\d|2\d|3[01])\/(0[1-9]|1\d|2\d|3[01])\/(19|20)\d{2}\s+(0[0-9]|1[0-9]|2[0-3])\:(0[0-9]|[1-5][0-9])$")
     assert patt.match(agenda.partidas[0].get_fecha()) is not None, "La fecha no sigue el formato establecido"
+
+def test_partida_proxima():
+    e = Equipo.objects.get(nombre="Zurriagazo FC")
+    p = partida_mas_proxima(e.id)
+    fecha = datetime.datetime(2019, 1, 10, 12, 00)
+    assert p.fecha > fecha, "La función no devuelve la partida más reciente"
