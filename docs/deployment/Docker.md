@@ -77,10 +77,13 @@ Mi repositorio de DockerHub está en esta URL: https://hub.docker.com/r/alexhzr/
 He montado otra app de Heroku: https://gestorequipos-docker.herokuapp.com/
 
 Para desplegar por contenedores, primero hay que hacer
+
 ``$ heroku container:login``
 
 Ahora, para construir el Dockerfile y subir la imagen de Docker:
-``$ heroku container:push web -a gestor-equipos-dckr``
+
+``$ heroku container:push web -a gestorequipos-docker``
 
 Finalmente, desplegamos los cambios:
-``$ heroku container:release web -a gestor-equipos-dckr``
+
+``$ heroku container:release web -a gestorequipos-docker``
