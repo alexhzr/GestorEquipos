@@ -3,6 +3,9 @@
 
 lanzador.sh
 
+### Vagrant ###
+.vagrant
+
 ### Flask ###
 instance/*
 !instance/.gitignore
