@@ -73,8 +73,21 @@ Para probar la mi imagen, ejecutar:
 
 Mi repositorio de DockerHub está en esta URL: https://hub.docker.com/r/alexhzr/gestor-equipos
 
-## Despliegue con Docker
+## Despliegue con Docker en Heroku
 He montado otra app de Heroku: https://gestorequipos-docker.herokuapp.com/
+
+### heroku.yml
+Este fichero contiene información para que Heroku sepa cómo tratar la aplicación (al tratarse de un contenedor). Básicamente le dice que para construir, use Docker con el fichero Dockerfile, y la parte de run ya la conocemos.
+
+```ỳaml
+build:
+  docker:
+    web: Dockerfile
+run:
+web: gunicorn app:app
+```
+
+### Realizando el despliegue del contenedor
 
 Para desplegar por contenedores, primero hay que hacer
 
